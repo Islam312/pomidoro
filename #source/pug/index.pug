@@ -1,0 +1,56 @@
+extends base/_base
+
+block title
+    title="Timer"
+    //title your page 'about-us' example
+
+block content
+    canvas#canvas-body
+    main
+        .timer
+            .container
+                .timer__body
+                    .timer__settings-icon#timerConf
+                    .timer__settings-modal
+                        canvas#canvas-modal
+                        form.form-conf#formConf
+                            .form-conf__input
+                                label.form-conf__label(for="#pomodoro") Pomodoro
+                                input#pomodoro(type="number" name="pomodoro" value="25" max = "59" min = "1")
+                                .error-box
+                            .form-conf__input
+                                label.form-conf__label(for="shorkBreak") Shork Break
+                                input#shorkBreak(type="number", name="shork-break" value="5" max="10" min="1")
+                                .error-box
+                            .form-conf__input
+                                label.form-conf__label(for="longBreak") Long Break
+                                input#longBreak(type="number", name="long-break" value="15" max="15" min="1")
+                                .error-box
+                            .form-conf__input
+                                label.form-conf__label(for="betweenLongBreak") Number of pomodoro between long break
+                                input#betweenLongBreak(type="number", name="betweem-long-break" value="4" max="10" min="1")
+                                .error-box
+                            .form-conf__btns-group
+                                a#close-modal.form-conf__btn(href="#") close
+                                input#save-modal(type="submit" value="Save").form-conf__btn
+                                .error-box
+                        .madeBy
+                    .timer__panel#timerPanel
+                        .timer__time-state
+                            .timer__time#timeState
+                                span#timerMinute
+                                span :
+                                span#timerSeconds
+                            svg#progressBar
+                                circle(cx="150" cy="150" r="148")
+                                circle(cx="150" cy="150" r="148")
+                        .timer__control-panel#controlPanel
+                            .btn-group.active
+                                span.btn-control#startTimer start
+                            .btn-group
+                                span.btn-control#pauseTimer pause
+                            .btn-group
+                                span.btn-control#continueTimer continue
+                                span.btn-control#stopTimer stop
+//- connect only custom js
+block scripts

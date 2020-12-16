@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Free Web tutorials"/>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript"/>
+    <meta name="author" content="John Doe"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Timer</title>
+    <!--title your page 'about-us' example-->
+  </head>
+  <body>
+    <canvas id="canvas-body"></canvas>
+    <main>
+      <div class="timer">
+        <div class="container">
+          <div class="timer__body">
+            <div class="timer__settings-icon" id="timerConf"></div>
+            <div class="timer__settings-modal">
+              <canvas id="canvas-modal"></canvas>
+              <form class="form-conf" id="formConf">
+                <div class="form-conf__input">
+                  <label class="form-conf__label" for="#pomodoro">Pomodoro</label>
+                  <input id="pomodoro" type="number" name="pomodoro" value="25" max="59" min="1"/>
+                  <div class="error-box"></div>
+                </div>
+                <div class="form-conf__input">
+                  <label class="form-conf__label" for="shorkBreak">Shork Break</label>
+                  <input id="shorkBreak" type="number" name="shork-break" value="5" max="10" min="1"/>
+                  <div class="error-box"></div>
+                </div>
+                <div class="form-conf__input">
+                  <label class="form-conf__label" for="longBreak">Long Break</label>
+                  <input id="longBreak" type="number" name="long-break" value="15" max="15" min="1"/>
+                  <div class="error-box"></div>
+                </div>
+                <div class="form-conf__input">
+                  <label class="form-conf__label" for="betweenLongBreak">Number of pomodoro between long break</label>
+                  <input id="betweenLongBreak" type="number" name="betweem-long-break" value="4" max="10" min="1"/>
+                  <div class="error-box"></div>
+                </div>
+                <div class="form-conf__btns-group"><a class="form-conf__btn" id="close-modal" href="#">close</a>
+                  <input class="form-conf__btn" id="save-modal" type="submit" value="Save"/>
+                  <div class="error-box"></div>
+                </div>
+              </form>
+              <div class="madeBy"></div>
+            </div>
+            <div class="timer__panel" id="timerPanel">
+              <div class="timer__time-state">
+                <div class="timer__time" id="timeState"><span id="timerMinute"></span><span>:</span><span id="timerSeconds"></span></div>
+                <svg id="progressBar">
+                  <circle cx="150" cy="150" r="148"></circle>
+                  <circle cx="150" cy="150" r="148"></circle>
+                </svg>
+              </div>
+              <div class="timer__control-panel" id="controlPanel">
+                <div class="btn-group active"><span class="btn-control" id="startTimer">start</span></div>
+                <div class="btn-group"><span class="btn-control" id="pauseTimer">pause</span></div>
+                <div class="btn-group"><span class="btn-control" id="continueTimer">continue</span><span class="btn-control" id="stopTimer">stop</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/libs.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

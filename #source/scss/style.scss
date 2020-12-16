@@ -1,0 +1,193 @@
+@import "base/_base";
+@import "base/_fonts-and-button";
+
+@import "include/_header";
+@import "include/_footer";
+
+//include here your components or page styles
+body {
+  font-family: "SFProDisplay-Regular";
+  font-size: 16px;
+}
+//icon configuration
+.timer {
+  position: relative;
+  z-index: 1;
+  &__body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  //========CONFIGURATION TIME=============
+  &__settings-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-image: url("../img/Vector.png");
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  &__settings-modal {
+    display: none;
+    @extend %position-center;
+    max-width: 585px;
+    max-height: 717px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    overflow: hidden;
+    z-index: 2;
+    padding: 38px 29px;
+  }
+  .form-conf {
+    position: relative;
+
+    &__input {
+      position: relative;
+      display: block;
+      font-family: "robotoregular";
+      margin-bottom: 16px;
+      label {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 18px;
+        color: #ffffff;
+        margin: 0 4px;
+      }
+      input {
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+        height: 73px;
+        border: none;
+        border-radius: 3px;
+        background: #ffffff30;
+        margin: 9px 0;
+        padding: 0 17px;
+        color: #ffffff;
+        &:focus {
+          outline: 1px solid #ffffff;
+        }
+      }
+      .error-box{
+        position: absolute;
+        left: 5%;
+        top: 100%;
+        transform: translateY(-50%);
+        color: #fd0505;
+      }
+    }
+    &__btns-group {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+    }
+    &__btn {
+      display: block;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 30px;
+      text-transform: capitalize;
+      padding: 11px 40px;
+      color: $main;
+      border: 1px solid $main;
+      border-radius: 50px;
+      margin: 0 10px;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+
+  //================PANEL======================
+  &__panel {
+    @extend %position-center;
+    width: 355px;
+    height: 434px;
+  }
+  &__time-state {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  &__time {position: absolute;
+    width: 100%;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    font-size: 60px;
+    font-weight: 300;
+    color: $main;
+    z-index: 2;
+    span{
+      &:first-child{
+        position: absolute;
+        left: 24%;
+      }
+      &:last-child{
+        position: absolute;
+        right: 24;
+      }
+    }
+  }
+  //==========progress bar===========
+  #progressBar{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    circle{
+      fill: none;
+      stroke-width: 5px;
+      stroke: #000;
+      stroke-dasharray: 930;
+      stroke-dashoffset: 930;
+      transform-origin: center center;
+      transform: rotate(-90deg);
+      &:first-child{
+        stroke-dashoffset: 0;
+        stroke: rgba(250, 250, 250, 0.1);
+      }
+      &:last-child{
+        transition: .5s;
+      stroke: $main;
+      }
+    }
+}
+
+  //=============CONTROL PANEL============
+  &__control-panel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 300;
+    color: $main;
+    margin-top: 60px;
+    .btn-group{
+      display: none;
+    }
+    .btn-control {
+      display: inline-block;
+      cursor: pointer;
+      padding: 20px 47px;
+      border: 1px solid $main;
+      border-radius: 50px;
+      margin: 0 10px;
+      text-transform: capitalize;
+    }
+    .active{
+      display: flex;
+      justify-content: space-between;
+    }
+    .in-active{
+      display: none;
+    }
+    
+  }
+}
